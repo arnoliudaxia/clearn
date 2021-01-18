@@ -11,9 +11,7 @@ int* bubbleSort(int input[], size_t length, sortType sorttype)
 		for (int j = 0; j < length - 1 - i; j++) {
 			bool dosort = (sorttype == smallTobig) ? input[j] > input[j + 1] : input[j] < input[j + 1];
 			if (dosort) {
-				int temp = input[j];
-				input[j] = input[j + 1];
-				input[j + 1] = temp;
+				swap(input[j], input[j + 1]);
 				isSorted = 0;  //一旦需要交换数组元素，就说明剩下的元素没有排序好
 			}
 		}
@@ -32,9 +30,7 @@ int* bubbleSortLazy(int input[], size_t length, sortType sorttype)
 			bool op = input[i] < input[i + 1];
 			if (sorttype == smallTobig && input[i] != input[i + 1])op = !op;
 			if (op) {
-				auto temp = input[i];
-				input[i] = input[i + 1];
-				input[i + 1] = temp;
+				swap(input[i], input[i + 1]);
 				flag = true;
 			}
 		}

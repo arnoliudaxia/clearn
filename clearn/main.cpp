@@ -3,14 +3,10 @@
 #include <windows.h>
 #include <conio.h>
 #include "sortFunctions.h"
-#define swap(a,b) a ^= (b ^= (a ^= b));
 int main(void)
 {
-    int a = 1, b = 2;
-   /* a ^= b;
-    b ^= a;
-    a ^= b;*/
-    swap(a, b);
-    printf("a=%d,b=%d", a, b);
+    int aa[] = { 1,2,5,3,64,3 };
+    bubbleSort(aa, 6, smallTobig);
+    NULL;
     return 0;
 }

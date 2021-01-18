@@ -1,5 +1,5 @@
 #pragma once
-#define swap(a,b) a ^= (b ^= (a ^= b));
+#define swap(a,b) (a ^= (b ^= (a ^= b)))
 
 enum sortType
 {
