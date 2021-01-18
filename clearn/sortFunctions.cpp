@@ -1,20 +1,25 @@
 #include<stdio.h>
 #include <corecrt_malloc.h>
 #include "sortFunctions.h"
-struct dataInt
-{
-	int length;
-	int data[0];
-};
 
-void initdataint(int input[], size_t length)
+int* bubbleSort(int input[], size_t length, sortType sorttype)
 {
-	;
-}
-auto bubbleSort(int input[])
-{
-
-	return 0;
+	//优化算法：最多进行 n-1 轮比较
+	for (int i = 0; i < length - 1; i++)
+	{
+		bool isSorted = 1;  //假设剩下的元素已经排序好了
+		for (int j = 0; j < length - 1 - i; j++) {
+			bool dosort = (sorttype == smallTobig) ? input[j] > input[j + 1] : input[j] < input[j + 1];
+			if (dosort) {
+				int temp = input[j];
+				input[j] = input[j + 1];
+				input[j + 1] = temp;
+				isSorted = 0;  //一旦需要交换数组元素，就说明剩下的元素没有排序好
+			}
+		}
+		if (isSorted) break; //如果没有发生交换，说明剩下的元素已经排序好了
+	}
+	return input;
 }
 int* bubbleSortLazy(int input[], size_t length, sortType sorttype)
 {
@@ -24,10 +29,8 @@ int* bubbleSortLazy(int input[], size_t length, sortType sorttype)
 		flag = false;
 		for (size_t i = 0; i < length - 1; i++)
 		{
-			bool op;
-			if (input[i] < input[i + 1])op = true;
-			else op = false;
-			if (sorttype == smallTobig)op = !op;
+			bool op = input[i] < input[i + 1];
+			if (sorttype == smallTobig && input[i] != input[i + 1])op = !op;
 			if (op) {
 				auto temp = input[i];
 				input[i] = input[i + 1];
