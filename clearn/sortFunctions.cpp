@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include <corecrt_malloc.h>
 #include "sortFunctions.h"
 
 int* bubbleSort(int input[], size_t length, sortType sorttype)
