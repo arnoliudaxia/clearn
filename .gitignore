@@ -338,3 +338,9 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/yfSort/yfSort.vcxproj
+/yfSort/yfSort.vcxproj.filters
+/clearn/clearn.vcxproj
+/yfSort/pch.h
+/yfSort/pch.cpp
+/yfSort/framework.h
