@@ -141,10 +141,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="sortFunctions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sortFunctions.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\yfSort\yfSort.vcxproj">
+      <Project>{38888cc4-a698-4505-b53c-fa70f1667452}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
