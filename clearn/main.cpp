@@ -7,12 +7,12 @@
 #include "../yfSort/yfsort.h"
 
 int main(int argNum,char args[]) {
-	float a[] = { 2,2,4,1,5,3,3 };
+	int a[] = { 2,2,4,1,5,3,3 };
 	Sort sort;
 	sort.bubbleSort(a, 7, Sort::bigTosmall);
 	
-	for (auto x:a)
+	for (auto x : a)
 	{
-		printf_s("%.2f\t", x);
+		printf_s("%d\t",x );
 	}
 }

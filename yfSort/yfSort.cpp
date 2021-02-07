@@ -79,3 +79,16 @@ float* Sort::bubbleSortLazy(float input[], size_t length, sortType sorttype)
 	}
 	return (input);
 }
+
+int* Sort::selectionSort(int input[], size_t length, sortType sorttype)
+{
+	for (size_t i = 0; i < length; i++)
+	{
+		int max =i;
+		for (size_t j = i; j < length; j++)
+		{
+			max = sorttype == smallTobig ? (input[i] < input[j] ? i : j) : (input[i] > input[j] ? i : j);
+		}
+		swap(input[i], input[max]);
+	}
+}

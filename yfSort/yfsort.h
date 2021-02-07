@@ -14,4 +14,5 @@ public:
 	float* bubbleSort(float input[], size_t length, sortType);
 	int* bubbleSortLazy(int input[], size_t length, sortType);
 	float* bubbleSortLazy(float input[], size_t length, sortType);
+	int* selectionSort(int input[], size_t length, sortType sorttype);
 };
