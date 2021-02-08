@@ -21,6 +21,7 @@ public:
 	/// 排序的方法类似于理牌
 	/// 缺点：寻找插入位置慢，移动元素消耗性能
 	/// 优化：二分法；多元素同时插；数据链表；希尔排序
+	/// 通过使用交换法（每次插入一个一个交换而不是把一坨移动空出来一个位子再插入）优化了代码
 	/// </summary>
 	void insertSort(int input[], size_t length, sortType);
 	void heap_sort(int arr[], int len);
