@@ -2,12 +2,23 @@
 #include "yfsort.h"
 #include<stdio.h>
 #include <corecrt_malloc.h>
+#include <vcruntime_string.h>
 
 void Sort::swapf(float* a, float* b)
 {
 	float c = *a;
 	*a = *b;
 	*b = c;
+}
+
+void Sort::reverseArray(int input[], size_t length)
+{
+	int startIndex =((length % 2 == 0) ? length / 2 : (length - 1) / 2)-1;
+	float middlePosition = (length % 2 == 0) ? startIndex + .5 : length / 2-1;
+	do
+	{
+		swap(input[startIndex], input[(int)(middlePosition * 2) - startIndex]);
+	} while (startIndex--);
 }
 
 int* Sort::bubbleSort(int input[], size_t length, sortType sorttype)
@@ -93,7 +104,6 @@ void Sort::selectionSort(int input[], size_t length, sortType sorttype)
 		if(max!=i)swap(input[i], input[max]);
 	}
 }
-
 void* Sort::selectionSort2(int input[], size_t length, sortType sorttype)
 {
 	if (length < 2)return nullptr;
@@ -105,3 +115,26 @@ void* Sort::selectionSort2(int input[], size_t length, sortType sorttype)
 	if(max)swap(input[0], input[max]);
 	selectionSort2(input + 1, --length, sorttype);
 }
+
+void Sort::insertSort(int input[], size_t length, sortType sorttype)
+{
+	for (size_t preinsert = 1; preinsert < length; preinsert++)//待插入元素索引的循环
+	{
+		int waitForinsert = input[preinsert];
+		int insertPosition = preinsert;
+		for (size_t j = 0; j < preinsert; j++)//寻找插入位置
+		{
+			if (input[j] > input[preinsert])
+			{
+				insertPosition =j;
+				break;
+			}
+		}
+		for (int pushPointer = preinsert-1; pushPointer >=insertPosition; pushPointer--)//挤出一个空位
+		{
+			input[pushPointer + 1] = input[pushPointer];
+		}
+		input[insertPosition] = waitForinsert;
+	}
+}
+
