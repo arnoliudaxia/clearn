@@ -118,6 +118,7 @@ void* Sort::selectionSort2(int input[], size_t length, sortType sorttype)
 
 void Sort::insertSort(int input[], size_t length, sortType sorttype)
 {
+	if (length == 1)NULL;
 	for (size_t preinsert = 1; preinsert < length; preinsert++)//待插入元素索引的循环
 	{
 		int waitForinsert = input[preinsert];
@@ -135,6 +136,10 @@ void Sort::insertSort(int input[], size_t length, sortType sorttype)
 			input[pushPointer + 1] = input[pushPointer];
 		}
 		input[insertPosition] = waitForinsert;
+	}
+	if (sorttype == bigTosmall)
+	{
+		reverseArray(input,length);
 	}
 }
 
