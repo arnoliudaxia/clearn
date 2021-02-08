@@ -111,9 +111,9 @@ void Sort::selectionSort(int input[], size_t length, sortType sorttype)
 		if(max!=i)swap(input[i], input[max]);
 	}
 }
-void* Sort::selectionSort2(int input[], size_t length, sortType sorttype)
+void Sort::selectionSort2(int input[], size_t length, sortType sorttype)
 {
-	if (length < 2)return nullptr;
+	if (length < 2)return;
 	int max = 0;
 	for (size_t i = 1; i < length; i++)
 	{
@@ -145,5 +145,54 @@ void Sort::insertSort(int input[], size_t length, sortType sorttype)
 	{
 		reverseArray(input,length);
 	}
+}
+
+void max_heapify(int arr[], int start, int end)
+{
+	//建立父节点指标和子节点指标
+	int dad = start;
+	int son = dad * 2 + 1;
+	while (son <= end)  //若子节点指标在范围内才做比较
+	{
+		if (son + 1 <= end && arr[son] < arr[son + 1])
+			//先比较两个子节点大小，选择最大的
+			son++;
+		if (arr[dad] > arr[son]) //如果父节点大於子节点代表调整完毕，直接跳出函数
+			return;
+		else  //否则交换父子内容再继续子节点和孙节点比较
+		{
+			swap(arr[dad], arr[son]);
+			dad = son;
+			son = dad * 2 + 1;
+		}
+	}
+}
+void Sort::heap_sort(int input[], int len)
+{
+	int i;
+	//初始化，i从最後一个父节点开始调整
+	for (i = len / 2 - 1; i >= 0; i--)
+		max_heapify(input, i, len - 1);
+	//先将第一个元素和已排好元素前一位做交换，再重新调整，直到排序完毕
+	for (i = len - 1; i > 0; i--)
+	{
+		swap(input[0],input[i]);
+		max_heapify(input, 0, i - 1);
+	}
+}
+
+void Sort::shellSort(int input[], size_t length, sortType sorttype)
+{
+	 for(int gap=length/2;gap>0;gap/=2){
+            //从第gap个元素，逐个对其所在组进行直接插入排序操作
+            for(int i=gap;i<length;i++){
+                int j = i;
+                while(j-gap>=0 && input[j]<input[j-gap]){
+                    //插入排序采用交换法
+                    swap(input[j],input[j-gap]);
+                    j-=gap;
+                }
+            }
+        }
 }
 
