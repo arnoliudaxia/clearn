@@ -13,6 +13,7 @@ void Sort::swapf(float* a, float* b)
 
 void Sort::reverseArray(int input[], size_t length)
 {
+	if (length == 1)return;
 	int startIndex =((length % 2 == 0) ? length / 2 : (length - 1) / 2)-1;
 	float middlePosition = (length % 2 == 0) ? startIndex + .5 : length / 2-1;
 	do
@@ -23,6 +24,7 @@ void Sort::reverseArray(int input[], size_t length)
 
 int* Sort::bubbleSort(int input[], size_t length, sortType sorttype)
 {
+	if (length == 1)return;
 	//优化算法：最多进行 n-1 轮比较
 	for (int i = 0; i < length - 1; i++)
 	{
@@ -40,6 +42,7 @@ int* Sort::bubbleSort(int input[], size_t length, sortType sorttype)
 }
 float* Sort::bubbleSort(float input[], size_t length, sortType sorttype)
 {
+	if (length == 1)return;
 	//优化算法：最多进行 n-1 轮比较
 	for (int i = 0; i < length - 1; i++)
 	{
@@ -57,6 +60,7 @@ float* Sort::bubbleSort(float input[], size_t length, sortType sorttype)
 }
 int* Sort::bubbleSortLazy(int input[], size_t length, sortType sorttype)
 {
+	if (length == 1)return;
 	bool flag = true;
 	while (flag)
 	{
@@ -75,6 +79,7 @@ int* Sort::bubbleSortLazy(int input[], size_t length, sortType sorttype)
 }
 float* Sort::bubbleSortLazy(float input[], size_t length, sortType sorttype)
 {
+	if (length == 1)return;
 	bool flag = true;
 	while (flag)
 	{
@@ -94,6 +99,7 @@ float* Sort::bubbleSortLazy(float input[], size_t length, sortType sorttype)
 
 void Sort::selectionSort(int input[], size_t length, sortType sorttype)
 {
+	if (length == 1)return;
 	for (size_t i = 0; i < length-1; i++)
 	{
 		int max =i;
@@ -118,7 +124,7 @@ void* Sort::selectionSort2(int input[], size_t length, sortType sorttype)
 
 void Sort::insertSort(int input[], size_t length, sortType sorttype)
 {
-	if (length == 1)NULL;
+	if (length == 1)return;
 	for (size_t preinsert = 1; preinsert < length; preinsert++)//待插入元素索引的循环
 	{
 		int waitForinsert = input[preinsert];
