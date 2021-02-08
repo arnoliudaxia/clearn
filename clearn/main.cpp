@@ -9,7 +9,7 @@
 int main(int argNum,char args[]) {
 	int a[] = { 2,2,4,1,5,3,3,9 };
 	Sort sort;
-	sort.shellSort(a, 8,Sort::smallTobig);
+	sort.insertSort(a, 8,Sort::smallTobig);
 	printf_s("从小到大:");
 	for (auto x : a)
 	{

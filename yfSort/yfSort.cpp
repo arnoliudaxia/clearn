@@ -123,23 +123,18 @@ void Sort::selectionSort2(int input[], size_t length, sortType sorttype)
 	selectionSort2(input + 1, --length, sorttype);
 }
 
+
 void Sort::insertSort(int input[], size_t length, sortType sorttype)
 {
 	if (length == 1)return;
 	for (size_t preinsert = 1; preinsert < length; preinsert++)//待插入元素索引的循环
 	{
-		int waitForinsert = input[preinsert];//把待插入的数据先储存起来，后面要覆盖
-		int insertPosition = preinsert;//首先假定不用插入
-		for (size_t j = preinsert-1; j >=0; j--)//寻找插入位置
+		size_t j = preinsert-1;
+		while (j>=0&&input[j]>input[j+1])
 		{
-			if (input[j] <= waitForinsert)
-			{
-				input[j+1] = waitForinsert;
-				break;
-			}
-			input[j + 1] = input[j];
+			swap(input[j], input[j + 1]);
+			j--;
 		}
-		
 	}
 	if (sorttype == bigTosmall)
 	{
