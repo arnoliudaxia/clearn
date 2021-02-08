@@ -204,7 +204,7 @@ void Sort::heap_sort(int input[], int len)
 
 void Sort::shellSort(int input[], size_t length, sortType sorttype)
 {
-	 for(int gap=length/2;gap>0;gap/=2){
+	 for(int gap=length/2;gap>0;gap/=2){//这里增量取an+1=an/2（shell本人的建议）并非是最好的选择
             //从第gap个元素，逐个对其所在组进行直接插入排序操作
             for(int i=gap;i<length;i++){
                 int j = i;
