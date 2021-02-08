@@ -130,7 +130,7 @@ void Sort::insertSort(int input[], size_t length, sortType sorttype)
 	for (size_t preinsert = 1; preinsert < length; preinsert++)//待插入元素索引的循环
 	{
 		size_t j = preinsert-1;
-		while (j>=0&&input[j]>input[j+1])
+		while (j>=0&&input[j]>input[j+1])//这里类似于冒泡的思想
 		{
 			swap(input[j], input[j + 1]);
 			j--;
