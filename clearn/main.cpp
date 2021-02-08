@@ -9,17 +9,10 @@
 int main(int argNum,char args[]) {
 	int a[] = { 2,2,4,1,5,3,3,9 };
 	Sort sort;
-	sort.insertSort(a, 8,Sort::smallTobig);
+	sort.shellSort(a, 8,Sort::smallTobig);
 	printf_s("从小到大:");
 	for (auto x : a)
 	{
 		printf_s("%d\t",x );
-	}
-	printf_s("\n");
-	sort.insertSort(a, 8, Sort::bigTosmall);
-	printf_s("从大到小:");
-	for (auto x : a)
-	{
-		printf_s("%d\t", x);
 	}
 }
