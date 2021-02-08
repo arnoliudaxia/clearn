@@ -123,7 +123,7 @@ void Sort::selectionSort2(int input[], size_t length, sortType sorttype)
 	selectionSort2(input + 1, --length, sorttype);
 }
 
-
+//使用交换法
 void Sort::insertSort(int input[], size_t length, sortType sorttype)
 {
 	if (length == 1)return;
@@ -141,7 +141,33 @@ void Sort::insertSort(int input[], size_t length, sortType sorttype)
 		reverseArray(input,length);
 	}
 }
-
+//使用插入法
+void Sort::__insertSort(int input[], size_t length, sortType sorttype)
+{
+	if (length == 1)return;
+	for (size_t preinsert = 1; preinsert < length; preinsert++)//待插入元素索引的循环
+	{
+		int waitForinsert = input[preinsert];//把待插入的数据先储存起来，后面要覆盖
+		int insertPosition = preinsert;//首先假定不用插入
+		for (size_t j = 0; j < preinsert; j++)//寻找插入位置
+		{
+			if (input[j] > input[preinsert])
+			{
+				insertPosition = j;
+				break;
+			}
+		}
+		for (int pushPointer = preinsert - 1; pushPointer >= insertPosition; pushPointer--)//挤出一个空位
+		{
+			input[pushPointer + 1] = input[pushPointer];
+		}
+		input[insertPosition] = waitForinsert;
+	}
+	if (sorttype == bigTosmall)
+	{
+		reverseArray(input, length);
+	}
+}
 void max_heapify(int arr[], int start, int end)
 {
 	//建立父节点指标和子节点指标

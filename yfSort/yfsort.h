@@ -24,6 +24,7 @@ public:
 	/// 通过使用交换法（每次插入一个一个交换而不是把一坨移动空出来一个位子再插入）优化了代码
 	/// </summary>
 	void insertSort(int input[], size_t length, sortType);
+	void __insertSort(int input[], size_t length, sortType sorttype);
 	void heap_sort(int arr[], int len);
 	//希尔排序（shell）https://www.cnblogs.com/chengxiao/p/6104371.html
 	void shellSort(int input[], size_t length, sortType);
