@@ -28,4 +28,11 @@ public:
 	void heap_sort(int arr[], int len);
 	//希尔排序（shell）https://www.cnblogs.com/chengxiao/p/6104371.html
 	void shellSort(int input[], size_t length, sortType);
+	/// <summary>
+	/// 快速排序
+	/// 优点是比较和交换的次数少，在许多情况下效率较高
+	/// </summary>
+	/// <param name="input">为了编写代码的方便，只允许从小到大排列</param>
+	/// <param name="length"></param>
+	void fastSort(int input[], size_t length);
 };

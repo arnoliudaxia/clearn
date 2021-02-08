@@ -7,9 +7,9 @@
 #include "../yfSort/yfsort.h"
 
 int main(int argNum,char args[]) {
-	int a[] = { 2,2,4,1,5,3,3,9 };
+	int a[] = { 3,5,8,1,2,9,4,7,6 };
 	Sort sort;
-	sort.insertSort(a, 8,Sort::smallTobig);
+	sort.fastSort(a, 9);
 	printf_s("从小到大:");
 	for (auto x : a)
 	{

@@ -217,3 +217,28 @@ void Sort::shellSort(int input[], size_t length, sortType sorttype)
         }
 }
 
+
+void Sort::fastSort(int input[], size_t length)
+{
+	if (length < 2)return;
+	int pivot = input[length - 1];//令pivot为数组最右侧的元素
+	int L = 0, R = length - 2;//定义L，R标记
+	moveTag:
+	while (input[L] < pivot)L++;//移动L标签（寻找大于pivot的元素）
+	if (L == length - 1)goto END;//如果L到达了pivot（L碰到R不会停止）
+	while (input[R] >= pivot)//左移R（寻找小于pivot的元素）
+	{
+		if (L == R)
+		{
+			swap(input[R], input[length - 1]);//如果LR已经碰面，就认为排序完成
+			goto END;
+		}
+		R--;
+	}
+	swap(input[L], input[R]);//将小的扔到右边，大的扔到左边
+	goto moveTag;//如果LR没有碰面，就继续
+END:
+	fastSort(input, L);
+	fastSort(input + L + 1, length - L - 1);
+}
+
