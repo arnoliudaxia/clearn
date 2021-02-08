@@ -24,7 +24,7 @@ void Sort::reverseArray(int input[], size_t length)
 
 int* Sort::bubbleSort(int input[], size_t length, sortType sorttype)
 {
-	if (length == 1)return;
+	if (length == 1)goto END;
 	//优化算法：最多进行 n-1 轮比较
 	for (int i = 0; i < length - 1; i++)
 	{
@@ -38,11 +38,12 @@ int* Sort::bubbleSort(int input[], size_t length, sortType sorttype)
 		}
 		if (isSorted) break; //如果没有发生交换，说明剩下的元素已经排序好了
 	}
+	END:
 	return input;
 }
 float* Sort::bubbleSort(float input[], size_t length, sortType sorttype)
 {
-	if (length == 1)return;
+	if (length == 1)return input;
 	//优化算法：最多进行 n-1 轮比较
 	for (int i = 0; i < length - 1; i++)
 	{
@@ -60,7 +61,7 @@ float* Sort::bubbleSort(float input[], size_t length, sortType sorttype)
 }
 int* Sort::bubbleSortLazy(int input[], size_t length, sortType sorttype)
 {
-	if (length == 1)return;
+	if (length == 1)return input;
 	bool flag = true;
 	while (flag)
 	{
@@ -79,7 +80,7 @@ int* Sort::bubbleSortLazy(int input[], size_t length, sortType sorttype)
 }
 float* Sort::bubbleSortLazy(float input[], size_t length, sortType sorttype)
 {
-	if (length == 1)return;
+	if (length == 1)return input;
 	bool flag = true;
 	while (flag)
 	{
@@ -129,19 +130,16 @@ void Sort::insertSort(int input[], size_t length, sortType sorttype)
 	{
 		int waitForinsert = input[preinsert];//把待插入的数据先储存起来，后面要覆盖
 		int insertPosition = preinsert;//首先假定不用插入
-		for (size_t j = 0; j < preinsert; j++)//寻找插入位置
+		for (size_t j = preinsert-1; j >=0; j--)//寻找插入位置
 		{
-			if (input[j] > input[preinsert])
+			if (input[j] <= waitForinsert)
 			{
-				insertPosition =j;
+				input[j+1] = waitForinsert;
 				break;
 			}
+			input[j + 1] = input[j];
 		}
-		for (int pushPointer = preinsert-1; pushPointer >=insertPosition; pushPointer--)//挤出一个空位
-		{
-			input[pushPointer + 1] = input[pushPointer];
-		}
-		input[insertPosition] = waitForinsert;
+		
 	}
 	if (sorttype == bigTosmall)
 	{
