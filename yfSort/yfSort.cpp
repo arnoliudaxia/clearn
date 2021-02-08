@@ -127,8 +127,8 @@ void Sort::insertSort(int input[], size_t length, sortType sorttype)
 	if (length == 1)return;
 	for (size_t preinsert = 1; preinsert < length; preinsert++)//待插入元素索引的循环
 	{
-		int waitForinsert = input[preinsert];
-		int insertPosition = preinsert;
+		int waitForinsert = input[preinsert];//把待插入的数据先储存起来，后面要覆盖
+		int insertPosition = preinsert;//首先假定不用插入
 		for (size_t j = 0; j < preinsert; j++)//寻找插入位置
 		{
 			if (input[j] > input[preinsert])
