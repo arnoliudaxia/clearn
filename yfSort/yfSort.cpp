@@ -217,7 +217,8 @@ void Sort::shellSort(int input[], size_t length, sortType sorttype)
         }
 }
 
-
+////1）采用更合理的基准数（中心轴），减少递归的深度。从数列中选取多个数，取中间数。
+//2）结合插入排序，区间在10个元素之内采用插入排序，效率更高。
 void Sort::fastSort(int input[], size_t length)
 {
 	if (length < 2)return;
