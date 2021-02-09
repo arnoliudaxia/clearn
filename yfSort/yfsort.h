@@ -35,4 +35,15 @@ public:
 	/// <param name="input">为了编写代码的方便，只允许从小到大排列</param>
 	/// <param name="length"></param>
 	void fastSort(int input[], size_t length);
+	/// <summary>
+	/// 归并排序
+	/// https://www.cnblogs.com/chengxiao/p/6194356.html
+	/// 归并排序是稳定排序，它也是一种十分高效的排序，能利用完全二叉树特性的排序一般性能都不会太差。
+	/// 每次合并操作的平均时间复杂度为O(n)，而完全二叉树的深度为|log2n|。总的平均时间复杂度为O(nlogn)。而且，归并排序的最好，最坏，平均时间复杂度均为O(nlogn)。
+	/// </summary>
+	/// <param name="sourceArr"></param>
+	/// <param name="tempArr"></param>
+	/// <param name="startIndex"></param>
+	/// <param name="endIndex"></param>
+	void MergeSort(int sourceArr[], int tempArr[], int startIndex, int endIndex);
 };
