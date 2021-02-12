@@ -46,4 +46,17 @@ public:
 	/// <param name="startIndex"></param>
 	/// <param name="endIndex"></param>
 	void MergeSort(int sourceArr[], int tempArr[], int startIndex, int endIndex);
+	/// <summary>
+	/// 技计数排序
+	/// 以空间换取时间
+	/// 原理：把每个元素统计有多少个，然后一个个按大小顺序释放出来
+	/// 优点：时间复杂度为Ο(n+k)（其中k是整数的范围），快于任何比较排序算法。
+	/// 但是必须满足一下两个限制条件：
+	/// 元素都为整数
+	/// 元素的值域较小
+	/// </summary>
+	/// <param name="data"></param>
+	/// <param name="n"></param>
+	void CountSort(int data[], int n);
+	
 };

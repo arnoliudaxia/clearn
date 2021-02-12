@@ -260,7 +260,6 @@ void Merge(int sourceArr[], int tempArr[], int startIndex, int midIndex, int end
 	for (i = startIndex; i <= endIndex; i++)
 		sourceArr[i] = tempArr[i];
 }
-
 //内部使用递归
 void Sort::MergeSort(int sourceArr[], int tempArr[], int startIndex, int endIndex)
 {
@@ -272,4 +271,39 @@ void Sort::MergeSort(int sourceArr[], int tempArr[], int startIndex, int endInde
 		MergeSort(sourceArr, tempArr, midIndex + 1, endIndex);
 		Merge(sourceArr, tempArr, startIndex, midIndex, endIndex);
 	}
+}
+
+//TODO:使用循环代替递归
+
+void Sort::CountSort(int data[], int n)
+{
+	int i, j, count, * data_p, temp;
+	data_p = (int*)malloc(sizeof(int) * n);
+	for (i = 0;i < n;i++)//初始化data_p
+		data_p[i] = 0;
+	for (i = 0;i < n;i++)
+	{
+		count = 0;
+		for (j = 0;j < n;j++)//扫描待排序数组
+			if (data[j] < data[i])//统计比data[i]值小的值的个数
+				count++;
+		while (data_p[count] != 0)//对于相等非0的数据，应向后措一位。数据为0时，因数组data_p被初始化为0，故不受影响。
+		/* 注意此处应使用while循环进行判断，若用if条件则超过三个重复值后有0出现 */
+			count++;
+		data_p[count] = data[i];//存放到data_p中的对应位置
+	}
+	//用于检查当有多个数相同时的情况
+	i = 0, j = n;
+	while (i < j)
+	{
+		if (data_p[i] == 0)
+		{
+			temp = i - 1;
+			data_p[i] = data_p[temp];
+		}//of if
+		i++;
+	}//of  while
+	for (i = 0;i < n;i++)//把排序完的数据复制到data中
+		data[i] = data_p[i];
+	free(data_p);//释放data_p
 }
