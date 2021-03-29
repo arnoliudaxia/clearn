@@ -344,3 +344,5 @@ healthchecksdb
 /yfSort/pch.h
 /yfSort/pch.cpp
 /yfSort/framework.h
+
+linktable/
