@@ -141,9 +141,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="yflinktable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sortFunctions.h" />
+    <ClInclude Include="yflinktable.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\yfSort\yfSort.vcxproj">
