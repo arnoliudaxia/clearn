@@ -1,8 +1,12 @@
-
 #include "yflinktable.h"
 #include <malloc.h>
-#include <stdio.h>
+#include<stdio.h>
 
+/// <summary>
+/// 初始化一个单链表对象（自动创建一个Node）
+/// </summary>
+/// <param name="data">头Node数据</param>
+/// <returns>返回头Node地址（head）</returns>
 Linktable::Node* Linktable::initializeNode(int data)
 {
 	Linktable::Node* p = (Linktable::Node*)malloc(sizeof(Linktable::Node));
@@ -10,6 +14,10 @@ Linktable::Node* Linktable::initializeNode(int data)
 	p->next = nullptr;
 	return p;
 }
+/// <summary>
+/// 自动打印一个链表内所有元素
+/// </summary>
+/// <param name="head"></param>
 void Linktable::logNodes(Node* head)
 {
 	// print the link-list
@@ -33,5 +41,17 @@ void Linktable::addNode(int data,Node* head)
 		}
 		// link
 		last->next = p;
+}
+bool Linktable::search(int param, Node* head)
+{
+	Node* p=head;
+	bool isFound = false;
+	for (p = head; p; p = p->next) {
+		if (p->data == param) {
+			isFound = true;
+			break;
+		}
+	}
+	return isFound;
 }
 

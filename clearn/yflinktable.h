@@ -19,5 +19,6 @@ public:
 	}
 	void logNodes(Node* start);
 	void addNode(int data, Node* head);
+	bool search(int param, Node* head);
 };
 
