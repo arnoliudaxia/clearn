@@ -346,3 +346,7 @@ healthchecksdb
 /yfSort/framework.h
 
 linktable/
+
+clearn/main.cpp
+
+*.sln
