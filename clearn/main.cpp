@@ -34,7 +34,10 @@ int main(int argNum,char args[]) {
 	
 	using namespace mylinktable;
 	Linktable<Node> linktable(10);
+	linktable.addNode(20);
 	linktable.logNodes();
+	cout << linktable.search(20);
+	cout << linktable.search(21);
 	//Linktable::Node* head= linktable.initializeNode(10);
 	//linktable.addNode(999, head);
 	//printf("%d\n",linktable.search(10,head));
