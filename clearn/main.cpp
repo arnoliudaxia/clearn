@@ -35,11 +35,10 @@ int main(int argNum,char args[]) {
 	
 	//¡¥±Ì≤‚ ‘
 	
-	//Linktable linktable;
-	//Linktable::Node* head= linktable.initializeNode(10);
-	//linktable.addNode(999, head);
-	//printf("%d\n",linktable.search(10,head));
-	//linktable.logNodes(head);
+	Linktable linktable(10);
+	linktable.addNode(999);
+	printf("%d\n",linktable.search(10,head));
+	linktable.logNodes(head);
 
 
 

@@ -2,6 +2,11 @@
 #include <malloc.h>
 #include<stdio.h>
 
+Linktable::Linktable(int data)
+{
+	this->HEAD = initializeNode(data);
+}
+
 /// <summary>
 /// 初始化一个单链表对象（自动创建一个Node）
 /// </summary>
@@ -28,30 +33,36 @@ void Linktable::logNodes(Node* head)
 	}
 }
 
-void Linktable::addNode(int data,Node* head)
+void Linktable::addNode(int data)
 {
 	// add into the linked-list
 	Node* p = (Node*)malloc(sizeof(Node));
 	p->data = data;
 	p->next = NULL;
 	// find the last
-	Node* last = head;
+	Node* last = this->HEAD;
 		while (last->next) {
 			last = last->next;
 		}
 		// link
 		last->next = p;
 }
-bool Linktable::search(int param, Node* head)
+bool Linktable::search(int param)
 {
-	Node* p=head;
 	bool isFound = false;
-	for (p = head; p; p = p->next) {
+	for (Node* p = this->HEAD; p; p = p->next) {
 		if (p->data == param) {
 			isFound = true;
 			break;
 		}
 	}
 	return isFound;
+}
+
+int Linktable::size()
+{
+	int size = 0;
+	for (Node* p = this->HEAD; p != nullptr; p = p->next) size++;
+	return size;
 }
 

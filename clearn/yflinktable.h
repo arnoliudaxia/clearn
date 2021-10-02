@@ -8,10 +8,16 @@ public:
 		Node* next;
 	};
 
-	Node* initializeNode(int data);
+	Linktable(int data);
 
-	void logNodes(Node* start);
-	void addNode(int data, Node* head);
-	bool search(int param, Node* head);
+
+	void logNodes(Node* head);
+	void addNode(int data);
+	bool search(int param);
+	int size();
+
+	Node* HEAD;
+private:
+	Node* initializeNode(int data);
 };
 
