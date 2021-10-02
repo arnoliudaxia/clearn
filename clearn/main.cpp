@@ -1,4 +1,4 @@
-//#pragma warning(disable : 4996)
+#pragma warning(disable : 4996)
 
 #include <stdio.h>
 #include<string.h>
@@ -18,8 +18,12 @@ int main(int argNum,char args[]) {
 	//	printf_s("%d\t",x );
 	//}
 	
-	Linktable linktable;
-	Linktable::Node* head= linktable.initializeNode(10);
-	linktable.addNode(999, head);
-	linktable.logNodes(head);
+	//Linktable linktable;
+	//Linktable::Node* head= linktable.initializeNode(10);
+	//linktable.addNode(999, head);
+	//printf("%d\n",linktable.search(10,head));
+	//linktable.logNodes(head);
+
+
+
 }
