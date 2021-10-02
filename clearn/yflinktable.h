@@ -38,8 +38,17 @@ namespace mylinktable
 		//[[deprecated("Old c with no object view")]]
 		//NodeType* initializeNode(int data);
 
-		//void logNodes();
-		//void addNode(int data, Node* head);
+		void logNodes()
+		{
+			int i = 0;
+			for (auto p1 = this->HEAD; p1; p1 = p1->next) {
+				printf("link-%p-%p: value[%d] = %d\n", p1, p1->next, i++, p1->data);
+			}
+		}
+		void addNode(int data, Node* head)
+		{
+
+		}
 		//bool search(int param, Node* head);
 
 		NodeType* HEAD;

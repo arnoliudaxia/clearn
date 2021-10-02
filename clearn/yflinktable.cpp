@@ -3,19 +3,7 @@
 #include<stdio.h>
 
 
-///// <summary>
-///// (纯c)初始化一个单链表对象（自动创建一个Node）
-///// </summary>
-///// <param name="data">头Node数据</param>
-///// <returns>返回头Node地址（head）</returns>
-//template <class NodeType, class DataType>
-//NodeType* Linktable<NodeType, DataType>::initializeNode(int data)
-//{
-//	Node* p = (Node*)malloc(sizeof(Node));
-//	p->data = data;
-//	p->next = nullptr;
-//	return p;
-//}
+
 //template<class NodeType, class DataType>
 //void Linktable<NodeType, DataType>::logNodes()
 //{

@@ -34,6 +34,7 @@ int main(int argNum,char args[]) {
 	
 	using namespace mylinktable;
 	Linktable<Node> linktable(10);
+	linktable.logNodes();
 	//Linktable::Node* head= linktable.initializeNode(10);
 	//linktable.addNode(999, head);
 	//printf("%d\n",linktable.search(10,head));
