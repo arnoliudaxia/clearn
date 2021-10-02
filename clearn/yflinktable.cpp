@@ -21,7 +21,7 @@ Linktable::Node* Linktable::initializeNode(int data)
 	return p;
 }
 /// <summary>
-/// 自动打印一个链表内所有元素
+/// 自动打印一个链表的长度及其内所有元素
 /// </summary>
 /// <param name="head"></param>
 void Linktable::logNodes()
