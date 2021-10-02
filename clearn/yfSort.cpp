@@ -338,5 +338,5 @@ void Sort::CountSort(int data[], int n)
 	}//of  while
 	for (i = 0;i < n;i++)//把排序完的数据复制到data中
 		data[i] = data_p[i];
-	free(data_p);//释放data_p
+	delete(data_p);//释放data_p
 }
