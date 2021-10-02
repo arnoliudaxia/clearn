@@ -25,9 +25,13 @@ public:
 	int* bubbleSortLazy(int input[], size_t length, sortType);
 	[[deprecated]]
 	float* bubbleSortLazy(float input[], size_t length, sortType);
+
+
 	//选择排序
 	void selectionSort(int input[], size_t length, sortType);
 	void selectionSort2(int input[], size_t length, sortType);
+
+
 	/// <summary>插入排序
 	/// 排序的方法类似于理牌
 	/// 缺点：寻找插入位置慢，移动元素消耗性能
@@ -39,6 +43,8 @@ public:
 	void heap_sort(int arr[], int len);
 	//希尔排序（shell）https://www.cnblogs.com/chengxiao/p/6104371.html
 	void shellSort(int input[], size_t length, sortType);
+
+
 	/// <summary>
 	/// 快速排序
 	/// 优点是比较和交换的次数少，在许多情况下效率较高
@@ -46,6 +52,8 @@ public:
 	/// <param name="input">为了编写代码的方便，只允许从小到大排列</param>
 	/// <param name="length"></param>
 	void fastSort(int input[], size_t length);
+
+
 	/// <summary>
 	/// 归并排序
 	/// https://www.cnblogs.com/chengxiao/p/6194356.html
@@ -56,9 +64,11 @@ public:
 	/// <param name="tempArr"></param>
 	/// <param name="startIndex"></param>
 	/// <param name="endIndex"></param>
-	void MergeSort(int sourceArr[], int tempArr[], int startIndex, int endIndex);
+	void MergeSort(int sourceArr[], int tempArr[], int startIndex, int endIndex,bool Recursion=1);
+
+
 	/// <summary>
-	/// 技计数排序
+	/// 计数排序
 	/// 以空间换取时间
 	/// 原理：把每个元素统计有多少个，然后一个个按大小顺序释放出来
 	/// 优点：时间复杂度为Ο(n+k)（其中k是整数的范围），快于任何比较排序算法。

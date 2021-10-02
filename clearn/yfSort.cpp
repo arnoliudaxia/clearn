@@ -288,7 +288,7 @@ void Merge(int sourceArr[], int tempArr[], int startIndex, int midIndex, int end
 		sourceArr[i] = tempArr[i];
 }
 //内部使用递归
-void Sort::MergeSort(int sourceArr[], int tempArr[], int startIndex, int endIndex)
+void Sort::MergeSort(int sourceArr[], int tempArr[], int startIndex, int endIndex, bool Recursion)
 {
 	if (startIndex < endIndex)
 	{
