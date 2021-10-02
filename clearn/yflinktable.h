@@ -11,7 +11,7 @@ public:
 	Linktable(int data);
 
 
-	void logNodes(Node* head);
+	void logNodes();
 	void addNode(int data);
 	bool search(int param);
 	int size();

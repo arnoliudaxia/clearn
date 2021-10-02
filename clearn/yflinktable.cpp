@@ -1,6 +1,7 @@
 #include "yflinktable.h"
 #include <malloc.h>
 #include<stdio.h>
+#include <iostream>
 
 Linktable::Linktable(int data)
 {
@@ -23,13 +24,14 @@ Linktable::Node* Linktable::initializeNode(int data)
 /// 自动打印一个链表内所有元素
 /// </summary>
 /// <param name="head"></param>
-void Linktable::logNodes(Node* head)
+void Linktable::logNodes()
 {
 	// print the link-list
-	Node* p1 = NULL;
-	int i = 0;
-	for (p1 = head; p1; p1 = p1->next) {
-		printf("link-%p-%p: value[%d] = %d...\n", p1, p1->next, i++, p1->data);
+	
+	std::cout << "The size of this LinkTable is " << size()<<"\n";
+	for (Node* p1 = this->HEAD; p1; p1 = p1->next) {
+		static int i = 0;
+		printf("link-%p-%p: value[%d] = %d\n", p1, p1->next, i++, p1->data);
 	}
 }
 

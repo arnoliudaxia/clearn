@@ -37,8 +37,8 @@ int main(int argNum,char args[]) {
 	
 	Linktable linktable(10);
 	linktable.addNode(999);
-	printf("%d\n",linktable.search(10,head));
-	linktable.logNodes(head);
+	printf("%d\n",linktable.search(10));
+	linktable.logNodes();
 
 
 
