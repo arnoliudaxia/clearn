@@ -22,7 +22,34 @@ void Sort::reverseArray(int input[], size_t length)
 	} while (startIndex--);
 }
 
-int* Sort::bubbleSort(int input[], size_t length, sortType sorttype)
+template<class T>
+void swap(T* x,T* y)
+{
+	T temp = *x;
+	*x = *y;
+	*y = temp;
+}
+template<class T>
+void Sort::bubbleSort(vector<T> input, sortType)
+{
+	if (input.size == 1)goto END;
+	//优化算法：最多进行 n-1 轮比较
+	for (int i = 0; i < input.size - 1; i++)
+	{
+		bool isSorted = 1;  //假设剩下的元素已经排序好了
+		for (int j = 0; j < length - 1 - i; j++) {
+			bool dosort = (sorttype == smallTobig) ? input[j] > input[j + 1] : input[j] < input[j + 1];
+			if (dosort) {
+				swap(input[j], input[j + 1]);
+				isSorted = 0;  //一旦需要交换数组元素，就说明剩下的元素没有排序好
+			}
+		}
+		if (isSorted) break; //如果没有发生交换，说明剩下的元素已经排序好了
+	}
+END:
+	return input;
+}
+int* Sort::c_bubbleSort(int input[], size_t length, sortType sorttype)
 {
 	if (length == 1)goto END;
 	//优化算法：最多进行 n-1 轮比较
@@ -263,17 +290,23 @@ void Merge(int sourceArr[], int tempArr[], int startIndex, int midIndex, int end
 //内部使用递归
 void Sort::MergeSort(int sourceArr[], int tempArr[], int startIndex, int endIndex)
 {
-	int midIndex;
 	if (startIndex < endIndex)
 	{
-		midIndex = startIndex + (endIndex - startIndex) / 2;//避免溢出int
+		int midIndex = startIndex + (endIndex - startIndex) / 2;//避免溢出int
 		MergeSort(sourceArr, tempArr, startIndex, midIndex);
 		MergeSort(sourceArr, tempArr, midIndex + 1, endIndex);
 		Merge(sourceArr, tempArr, startIndex, midIndex, endIndex);
 	}
 }
 
-//TODO:使用循环代替递归
+//使用循环代替递归
+template <typename T>
+void merge_sort(vector<T> a) {
+	int n = a.size();
+	for (int seg = 1; seg < n; seg = seg + seg)
+		for (int start = 0; start < n - seg; start += seg + seg)
+			merge(a, start, start + seg - 1, std::min(start + seg + seg - 1, n - 1));
+}
 
 void Sort::CountSort(int data[], int n)
 {
