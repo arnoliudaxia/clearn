@@ -2,19 +2,6 @@
 #include <malloc.h>
 #include<stdio.h>
 
-/// <summary>
-/// c++初始化一个单链表对象（自动创建一个Node）,HEAD地址储存在对象的HEAD属性中
-/// </summary>
-/// <typeparam name="NodeType">Node or BiNode</typeparam>
-/// <param name="data">第一个元素的值</param>
-template <class NodeType, class DataType>
-Linktable<NodeType, DataType>::Linktable(DataType data)
-{
-	auto x=*new Node<DataType>(10);
-	//Node<DataType> headnode(data);
-	this->HEAD = x;
-}
-
 
 ///// <summary>
 ///// (纯c)初始化一个单链表对象（自动创建一个Node）

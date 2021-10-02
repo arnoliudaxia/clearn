@@ -32,8 +32,8 @@ int main(int argNum,char args[]) {
 	//	cout << x << "\t";
 	//}
 	
-	
-	Linktable<Node<int>,int> linktable(10);
+	using namespace mylinktable;
+	Linktable<Node> linktable(10);
 	//Linktable::Node* head= linktable.initializeNode(10);
 	//linktable.addNode(999, head);
 	//printf("%d\n",linktable.search(10,head));
