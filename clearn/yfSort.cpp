@@ -290,14 +290,12 @@ void Merge(int sourceArr[], int tempArr[], int startIndex, int midIndex, int end
 //内部使用递归
 void Sort::MergeSort(int sourceArr[], int tempArr[], int startIndex, int endIndex, bool Recursion)
 {
-	if (startIndex < endIndex)
-	{
+	if (startIndex >= endIndex) return;
 		int midIndex = startIndex + (endIndex - startIndex) / 2;//避免溢出int
 		MergeSort(sourceArr, tempArr, startIndex, midIndex);
 		MergeSort(sourceArr, tempArr, midIndex + 1, endIndex);
 		Merge(sourceArr, tempArr, startIndex, midIndex, endIndex);
 	}
-}
 
 //使用循环代替递归
 template <typename T>

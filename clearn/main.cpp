@@ -21,8 +21,7 @@ void JurassicPeriod() {
 }
 int main(int argNum,char args[]) {
 	using namespace std;
-	
-	//Êý×é²âÊÔ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ã·¨ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
 	//vector<int> a = { 3,5,8,1,2,9,4,7,6 };
 	//Sort mysort;
 	////int b[9];
@@ -33,12 +32,16 @@ int main(int argNum,char args[]) {
 	//	cout << x << "\t";
 	//}
 	
-	//Á´±í²âÊÔ
-	
-	Linktable linktable(10);
-	linktable.addNode(999);
-	printf("%d\n",linktable.search(10));
+	using namespace mylinktable;
+	Linktable<Node> linktable(10);
+	linktable.addNode(20);
 	linktable.logNodes();
+	cout << linktable.search(20);
+	cout << linktable.search(21);
+	//Linktable::Node* head= linktable.initializeNode(10);
+	//linktable.addNode(999, head);
+	//printf("%d\n",linktable.search(10,head));
+	//linktable.logNodes(head);
 
 
 
