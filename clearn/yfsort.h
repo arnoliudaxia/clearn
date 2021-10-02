@@ -16,8 +16,7 @@ public:
 	void swapf(float* a, float* b);
 	void reverseArray(int input[], size_t length);
 	//ц╟ещеепР
-	template <class T>
-	void bubbleSort(vector<T> input, sortType sorttype=smallTobig);
+	void bubbleSort(vector<int> &input, sortType sorttype=smallTobig);
 	[[deprecated("Old C style")]]
 	int* c_bubbleSort(int input[], size_t length, sortType);
 	[[deprecated("Old C style")]]

@@ -4,13 +4,33 @@
 #include<string.h>
 #include <stdlib.h>
 #include<time.h>
-#include "../yfSort/yfsort.h"
+#include "yfsort.h"
 #include "yflinktable.h"
+#include <vector>
+#include <iostream>
+#include <algorithm>
 
+[[deprecated]]
+void TriassicPeriod() {
+	std::clog << "Triassic Period: [251.9 - 208.5] million years ago.\n";
+}
+
+[[deprecated("Use NeogenePeriod() instead.")]]
+void JurassicPeriod() {
+	std::clog << "Jurassic Period: [201.3 - 152.1] million years ago.\n";
+}
 int main(int argNum,char args[]) {
-	//int a[] = { 3,5,8,1,2,9,4,7,6 };
+	using namespace std;
+	vector<int> a = { 3,5,8,1,2,9,4,7,6 };
+	Sort mysort;
 	//int b[9];
-	//Sort sort;
+	mysort.bubbleSort(a);
+	sort(a.begin(), a.end());
+	for (auto x : a)
+	{
+		cout << x << "\t";
+	}
+	
 	//sort.CountSort(a, 9);
 	//printf_s("从小到大:");
 	//for (auto x : a)

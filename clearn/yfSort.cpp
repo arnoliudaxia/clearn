@@ -1,5 +1,4 @@
-﻿#include "pch.h"
-#include "yfsort.h"
+﻿#include "yfsort.h"
 #include<stdio.h>
 #include <corecrt_malloc.h>
 #include <vcruntime_string.h>
@@ -29,15 +28,13 @@ void swap(T* x,T* y)
 	*x = *y;
 	*y = temp;
 }
-
 //冒泡排序
-template<class T>
-void Sort::bubbleSort(vector<T> input, sortType sorttype)
+void Sort::bubbleSort(vector<int> &input, sortType sorttype)
 {
-	int length = input.size;
+	int length = input.size();
 	if (length == 1)goto END;
 	//优化算法：最多进行 n-1 轮比较
-	for (int i = 0; i < input.size - 1; i++)
+	for (int i = 0; i < length - 1; i++)
 	{
 		bool isSorted = 1;  //假设剩下的元素已经排序好了
 		for (int j = 0; j < length - 1 - i; j++) {
@@ -50,7 +47,7 @@ void Sort::bubbleSort(vector<T> input, sortType sorttype)
 		if (isSorted) break; //如果没有发生交换，说明剩下的元素已经排序好了
 	}
 END:
-	return input;
+	return;
 }
 int* Sort::c_bubbleSort(int input[], size_t length, sortType sorttype)
 {
