@@ -21,24 +21,19 @@ void JurassicPeriod() {
 }
 int main(int argNum,char args[]) {
 	using namespace std;
-	vector<int> a = { 3,5,8,1,2,9,4,7,6 };
-	Sort mysort;
-	//int b[9];
-	mysort.bubbleSort(a);
-	sort(a.begin(), a.end());
-	for (auto x : a)
-	{
-		cout << x << "\t";
-	}
-	
-	//sort.CountSort(a, 9);
-	//printf_s("从小到大:");
+	//排序算法测试模板
+	//vector<int> a = { 3,5,8,1,2,9,4,7,6 };
+	//Sort mysort;
+	////int b[9];
+	//mysort.bubbleSort(a);
+	//sort(a.begin(), a.end());
 	//for (auto x : a)
 	//{
-	//	printf_s("%d\t",x );
+	//	cout << x << "\t";
 	//}
 	
-	//Linktable linktable;
+	
+	Linktable<Node<int>,int> linktable(10);
 	//Linktable::Node* head= linktable.initializeNode(10);
 	//linktable.addNode(999, head);
 	//printf("%d\n",linktable.search(10,head));
