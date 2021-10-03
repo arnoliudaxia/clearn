@@ -3,6 +3,10 @@
 #include<iostream>
 namespace cpluslinktable
 {
+	/// <summary>
+	/// A classic one direction Node 
+	/// </summary>
+	/// <typeparam name="DataType">the value type</typeparam>
 	template <class DataType>
 	class Node
 	{
@@ -59,7 +63,7 @@ namespace cpluslinktable
 			}
 		}
 		/// <summary>
-		/// ��������ĩβ����һ���ڵ�
+		/// add Node to the end of the linktable
 		/// </summary>
 		/// <param name="data"></param>
 		void addNode(int data)
@@ -76,7 +80,7 @@ namespace cpluslinktable
 					last->next = p;
 		}
 		/// <summary>
-		/// ����������ֵΪparam�Ľڵ㣬����ҵ�����
+		/// try to search a node with the value given , if not found ,return -1,if found, return index
 		/// </summary>
 		/// <param name="param"></param>
 		/// <returns></returns>

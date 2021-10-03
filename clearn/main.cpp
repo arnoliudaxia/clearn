@@ -10,18 +10,10 @@
 #include <iostream>
 #include <algorithm>
 
-[[deprecated]]
-void TriassicPeriod() {
-	std::clog << "Triassic Period: [251.9 - 208.5] million years ago.\n";
-}
-
-[[deprecated("Use NeogenePeriod() instead.")]]
-void JurassicPeriod() {
-	std::clog << "Jurassic Period: [201.3 - 152.1] million years ago.\n";
-}
 int main(int argNum,char args[]) {
 	using namespace std;
-	//�����㷨����ģ��
+
+	//sort alogrithm test template
 	//vector<int> a = { 3,5,8,1,2,9,4,7,6 };
 	//Sort mysort;
 	////int b[9];
@@ -32,6 +24,7 @@ int main(int argNum,char args[]) {
 	//	cout << x << "\t";
 	//}
 	
+	//linktable alogrithm test template
 	using namespace cpluslinktable;
 	Linktable<Node<int>,int> linktable(10);
 	linktable.addNode(20);
