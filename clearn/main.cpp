@@ -28,10 +28,10 @@ int main(int argNum,char args[]) {
 	using namespace cpluslinktable;
 	Linktable<Node<int>,int> linktable(10);
 	orderLinkTable<> orderlinktable(1);
-	linktable.addNode(20);
+	linktable.addNode({20});
 	linktable.logNodes();
 
-	orderlinktable.addNode(2);
+	orderlinktable.addNode({20});
 	orderlinktable.logNodes();
 
 

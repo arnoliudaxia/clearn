@@ -58,18 +58,21 @@ namespace cpluslinktable
 		/// add Node to the end of the linktable
 		/// </summary>
 		/// <param name="data"></param>
-		void addNode(DataType data)
+		void addNode(std::initializer_list<DataType> datalist)
 		{
-
-				// add into the linked-list
-				Node<DataType>* p = new Node<DataType>(data);
-				// find the last
-				Node<DataType>* last = this->HEAD;
-					while (last->next) {
-						last = last->next;
-					}
-					// link
+			//先看一看最后再哪里
+			Node<DataType>* last = this->HEAD;
+			while (last->next) {
+				last = last->next;
+			}
+			//把新的元素接到last->next
+			for (auto item : datalist)
+			{
+				Node<DataType>* p = new Node<DataType>(item);
 					last->next = p;
+					last = p;
+			}
+
 		}
 		/// <summary>
 		/// try to search a node with the value given , if not found ,return -1,if found, return index
