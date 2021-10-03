@@ -7,7 +7,7 @@ namespace cpluslinktable
 	/// A classic one direction Node 
 	/// </summary>
 	/// <typeparam name="DataType">the value type</typeparam>
-	template <class DataType>
+	template <class DataType=int>
 	class Node
 	{
 	public:
@@ -31,7 +31,7 @@ namespace cpluslinktable
 	/// this a abstart manager of Nodes, the first node address is stored at HEAD var, the class also exposes some useful API
 	/// </summary>
 	/// <typeparam name="NodeType">Node or BiNode</typeparam>
-	template <class NodeType,class DataType>
+	template <class NodeType=Node<>,class DataType=int>
 	class Linktable
 	{
 	public:
@@ -39,7 +39,7 @@ namespace cpluslinktable
 		///  Create a linktable with one node
 		/// </summary>
 		/// <param name="data">node valueֵ</param>
-		Linktable(int data)
+		Linktable(DataType data)
 		{
 			//Node* temp = new Node(data);
 			this->HEAD = new Node<DataType>(data);
@@ -66,7 +66,7 @@ namespace cpluslinktable
 		/// add Node to the end of the linktable
 		/// </summary>
 		/// <param name="data"></param>
-		void addNode(int data)
+		void addNode(DataType data)
 		{
 
 				// add into the linked-list
@@ -84,7 +84,7 @@ namespace cpluslinktable
 		/// </summary>
 		/// <param name="param"></param>
 		/// <returns></returns>
-		int search(int param)
+		int search(DataType param)
 		{
 			int index = 0;
 				bool isFound = false;
