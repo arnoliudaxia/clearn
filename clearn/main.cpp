@@ -27,11 +27,14 @@ int main(int argNum,char args[]) {
 	//linktable alogrithm test template
 	using namespace cpluslinktable;
 	Linktable<Node<int>,int> linktable(10);
+	orderLinkTable<> orderlinktable(1);
 	linktable.addNode(20);
 	linktable.logNodes();
-	cout << linktable.search(20);
-	cout << linktable.search(21);
+
+	orderlinktable.addNode(2);
+	orderlinktable.logNodes();
 
 
+	
 
 }

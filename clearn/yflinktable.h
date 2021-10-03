@@ -11,11 +11,7 @@ namespace cpluslinktable
 	class Node
 	{
 	public:
-		Node(DataType headdata)
-		{
-			this->data = headdata;
-			this->next = nullptr;
-		}
+		Node(DataType headdata) :data(headdata), next(nullptr) {}
 		DataType data;
 		Node* next;
 
@@ -39,11 +35,7 @@ namespace cpluslinktable
 		///  Create a linktable with one node
 		/// </summary>
 		/// <param name="data">node valueֵ</param>
-		Linktable(DataType data)
-		{
-			//Node* temp = new Node(data);
-			this->HEAD = new Node<DataType>(data);
-		}
+		Linktable(DataType data) :HEAD(new Node<DataType>(data)) {}
 		
 		int size()
 		{
@@ -98,11 +90,24 @@ namespace cpluslinktable
 				return isFound ? index : -1;
 		}
 
-	private:
+	protected:
 		NodeType* HEAD;
 	};
 
-
+	template <class NodeType = Node<>, class DataType = int>
+	class orderLinkTable:public Linktable<NodeType,DataType>
+	{
+	public:
+		orderLinkTable(DataType data):Linktable<NodeType, DataType>(data) {}
+		void logNodes()
+		{
+			std::cout << "The size of the ordered linktable is:" << this->size() << "\n";
+			int i = 0;
+			for (auto p1 = this->HEAD; p1; p1 = p1->next) {
+				printf("link-%p-%p: value[%d] = %d\n", p1, p1->next, i++, p1->data);
+			}
+		}
+	};
 	
 
 
