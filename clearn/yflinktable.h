@@ -55,7 +55,7 @@ namespace cpluslinktable
 			}
 		}
 		/// <summary>
-		/// add Node to the end of the linktable
+		/// add a list of Nodes to the end of the linktable
 		/// </summary>
 		/// <param name="data"></param>
 		void addNode(std::initializer_list<DataType> datalist)
@@ -74,6 +74,12 @@ namespace cpluslinktable
 			}
 
 		}
+		/// <summary>
+		/// add one Node to the end of the linktable
+		/// </summary>
+		/// <param name="data"></param>
+		void addNode(DataType data) { addNode({ data }); }
+
 		/// <summary>
 		/// try to search a node with the value given , if not found ,return -1,if found, return index
 		/// </summary>
