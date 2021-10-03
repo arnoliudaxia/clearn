@@ -142,7 +142,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="yflinktable.cpp" />
     <ClCompile Include="yfSort.cpp" />
   </ItemGroup>
   <ItemGroup>

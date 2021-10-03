@@ -1,12 +1,18 @@
 #pragma once
 #include <stdio.h>
+#include<iostream>
 namespace cpluslinktable
 {
+	template <class DataType>
 	class Node
 	{
 	public:
-		Node(int headdata);
-		int data;
+		Node(DataType headdata)
+		{
+			this->data = headdata;
+			this->next = nullptr;
+		}
+		DataType data;
 		Node* next;
 
 		Node& operator=(const Node innode)
@@ -16,39 +22,37 @@ namespace cpluslinktable
 		}
 	};
 
-
-	inline Node::Node(int headdata)
-	{
-		this->data = headdata;
-		this->next = nullptr;
-	}
-
-
+		
 	/// <summary>
-	/// ����һ���������ĳ���ģ�ͣ�����Ľڵ���������࣬��Ҫ��������ͷ����Ϣ���ұ�¶һЩAPI����
+	/// this a abstart manager of Nodes, the first node address is stored at HEAD var, the class also exposes some useful API
 	/// </summary>
 	/// <typeparam name="NodeType">Node or BiNode</typeparam>
-	template <class NodeType>
+	template <class NodeType,class DataType>
 	class Linktable
 	{
 	public:
 		/// <summary>
-		///  c++��ʼ��һ�������������Զ�����һ��Node��,HEAD��ַ�����ڶ����HEAD������
+		///  Create a linktable with one node
 		/// </summary>
-		/// <param name="data">��һ��Ԫ�ص�ֵ</param>
+		/// <param name="data">node valueֵ</param>
 		Linktable(int data)
 		{
 			//Node* temp = new Node(data);
-			this->HEAD = new Node(data);
+			this->HEAD = new Node<DataType>(data);
 		}
-		//[[deprecated("Old c with no object view")]]
-		//NodeType* initializeNode(int data);
 		
+		int size()
+		{
+			int count=0;
+			for (Node<DataType>* p = this->HEAD;p != nullptr;p = p->next)count++;
+			return count;
+		}
 		/// <summary>
-		///  �Զ���ӡһ������������Ԫ��
+		/// print the size of the linktable and each node info
 		/// </summary>
 		void logNodes()
 		{
+			std::cout << "The size of the linktable is:" << size()<<"\n";
 			int i = 0;
 			for (auto p1 = this->HEAD; p1; p1 = p1->next) {
 				printf("link-%p-%p: value[%d] = %d\n", p1, p1->next, i++, p1->data);
@@ -62,9 +66,9 @@ namespace cpluslinktable
 		{
 
 				// add into the linked-list
-				Node* p = new Node(data);
+				Node<DataType>* p = new Node<DataType>(data);
 				// find the last
-				Node* last = this->HEAD;
+				Node<DataType>* last = this->HEAD;
 					while (last->next) {
 						last = last->next;
 					}
@@ -80,7 +84,7 @@ namespace cpluslinktable
 		{
 			int index = 0;
 				bool isFound = false;
-				for (Node* p = this->HEAD; p; p = p->next) {
+				for (Node<DataType>* p = this->HEAD; p; p = p->next) {
 					if (p->data == param) {
 						isFound=true;
 						break;
