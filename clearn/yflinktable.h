@@ -107,7 +107,15 @@ namespace cpluslinktable
 	class orderLinkTable:public Linktable<NodeType,DataType>
 	{
 	public:
+		static enum odertype
+		{
+			smallTobig,
+			bigTosmall,
+		};
 		orderLinkTable(DataType data):Linktable<NodeType, DataType>(data) {}
+		/// <summary>
+		/// 和父类差不多，只不过修改了提示语
+		/// </summary>
 		void logNodes()
 		{
 			std::cout << "The size of the ordered linktable is:" << this->size() << "\n";
@@ -116,6 +124,9 @@ namespace cpluslinktable
 				printf("link-%p-%p: value[%d] = %d\n", p1, p1->next, i++, p1->data);
 			}
 		}
+
+	private:
+		odertype myoder;
 	};
 	
 
