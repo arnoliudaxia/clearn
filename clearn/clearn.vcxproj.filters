@@ -21,6 +21,12 @@
     <ClCompile Include="yfSort.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="recrusionDebugUtility.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="binaryTreePrefab.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sortFunctions.h">
@@ -30,6 +36,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="yfsort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binaryTreePrefab.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
