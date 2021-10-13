@@ -4,6 +4,7 @@
 
 using namespace std;
 
+template<class T=int>
 class Sort
 {
 public:
@@ -13,33 +14,32 @@ public:
 		bigTosmall,
 	};
 	//一些基础算法
-	void swapf(float* a, float* b);
-	void reverseArray(int input[], size_t length);
+	void swapTwo(T& a, T& b) {
+		T c = a;
+		a = b;
+		b = c;
+	};
+	void swapTwo(T* a, T* b) { swapTwo(*a, *b); };
+	void c_reverseArray(int input[], size_t length);
 	//冒泡排序
 	void bubbleSort(vector<int> &input, sortType sorttype=smallTobig);
 	[[deprecated("Old C style")]]
-	int* c_bubbleSort(int input[], size_t length, sortType);
-	[[deprecated("Old C style")]]
-	float* bubbleSort(float input[], size_t length, sortType);
+	void c_bubbleSort(T input[], size_t length, sortType);
 	[[deprecated]]
-	int* bubbleSortLazy(int input[], size_t length, sortType);
-	[[deprecated]]
-	float* bubbleSortLazy(float input[], size_t length, sortType);
-
-
+	T* bubbleSortLazy(T input[], size_t length, sortType);
 	//选择排序
-	void selectionSort(int input[], size_t length, sortType);
-	void selectionSort2(int input[], size_t length, sortType);
-
-
-	/// <summary>插入排序
+	void selectionSort(T input[], size_t length, sortType);
+	void selectionSort2(T input[], size_t length, sortType);
+	/// <summary>
+	/// 插入排序
 	/// 排序的方法类似于理牌
 	/// 缺点：寻找插入位置慢，移动元素消耗性能
 	/// 优化：二分法；多元素同时插；数据链表；希尔排序
 	/// 通过使用交换法（每次插入一个一个交换而不是把一坨移动空出来一个位子再插入）优化了代码
 	/// </summary>
-	void insertSort(int input[], size_t length, sortType);
-	void __insertSort(int input[], size_t length, sortType sorttype);
+	void insertSort(T input[], size_t length, sortType);
+	void __insertSort(T input[], size_t length, sortType sorttype);
+	//堆排序
 	void heap_sort(int arr[], int len);
 	//希尔排序（shell）https://www.cnblogs.com/chengxiao/p/6104371.html
 	void shellSort(int input[], size_t length, sortType);
@@ -52,7 +52,8 @@ public:
 	/// <param name="input">为了编写代码的方便，只允许从小到大排列</param>
 	/// <param name="length"></param>
 	void fastSort(int input[], int length);
-
+	//两个等规模的数组，一个跟着另一个排序
+	void fastSortOneFollow(int input[], size_t length, int other[]);
 
 	/// <summary>
 	/// 归并排序

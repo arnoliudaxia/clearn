@@ -27,11 +27,11 @@
     <ClCompile Include="myalgorithm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="binaryTreePrefab.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sortFunctions.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="yflinktable.h">
       <Filter>头文件</Filter>
     </ClInclude>

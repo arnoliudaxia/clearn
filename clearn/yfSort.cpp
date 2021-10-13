@@ -4,14 +4,10 @@
 #include <vcruntime_string.h>
 #include <iostream>
 
-void Sort::swapf(float* a, float* b)
-{
-	float c = *a;
-	*a = *b;
-	*b = c;
-}
 
-void Sort::reverseArray(int input[], size_t length)
+
+template<class T>
+void Sort<T>::c_reverseArray(int input[], size_t length)
 {
 	if (length == 1)return;
 	int startIndex =((length % 2 == 0) ? length / 2 : (length - 1) / 2)-1;
@@ -22,15 +18,9 @@ void Sort::reverseArray(int input[], size_t length)
 	} while (startIndex--);
 }
 
-template<class T>
-void swap(T* x,T* y)
-{
-	T temp = *x;
-	*x = *y;
-	*y = temp;
-}
 //冒泡排序
-void Sort::bubbleSort(vector<int> &input, sortType sorttype)
+template<class T>
+void Sort<T>::bubbleSort(vector<int> &input, sortType sorttype)
 {
 	int length = input.size();
 	if (length == 1)goto END;
@@ -50,7 +40,8 @@ void Sort::bubbleSort(vector<int> &input, sortType sorttype)
 END:
 	return;
 }
-int* Sort::c_bubbleSort(int input[], size_t length, sortType sorttype)
+template<class T>
+void Sort<T>::c_bubbleSort(T input[], size_t length, sortType sorttype)
 {
 	if (length == 1)goto END;
 	//优化算法：最多进行 n-1 轮比较
@@ -67,27 +58,10 @@ int* Sort::c_bubbleSort(int input[], size_t length, sortType sorttype)
 		if (isSorted) break; //如果没有发生交换，说明剩下的元素已经排序好了
 	}
 	END:
-	return input;
+	return;
 }
-float* Sort::bubbleSort(float input[], size_t length, sortType sorttype)
-{
-	if (length == 1)return input;
-	//优化算法：最多进行 n-1 轮比较
-	for (int i = 0; i < length - 1; i++)
-	{
-		bool isSorted = 1;  //假设剩下的元素已经排序好了
-		for (int j = 0; j < length - 1 - i; j++) {
-			bool dosort = (sorttype == smallTobig) ? input[j] > input[j + 1] : input[j] < input[j + 1];
-			if (dosort) {
-				swapf(input+j, input+j + 1);
-				isSorted = 0;  //一旦需要交换数组元素，就说明剩下的元素没有排序好
-			}
-		}
-		if (isSorted) break; //如果没有发生交换，说明剩下的元素已经排序好了
-	}
-	return input;
-}
-int* Sort::bubbleSortLazy(int input[], size_t length, sortType sorttype)
+template<class T>
+T* Sort<T>::bubbleSortLazy(T input[], size_t length, sortType sorttype)
 {
 	int count = 0;
 
@@ -111,27 +85,10 @@ int* Sort::bubbleSortLazy(int input[], size_t length, sortType sorttype)
 	std::cout << count;
 	return (input);
 }
-float* Sort::bubbleSortLazy(float input[], size_t length, sortType sorttype)
-{
-	if (length == 1)return input;
-	bool flag = true;
-	while (flag)
-	{
-		flag = false;
-		for (size_t i = 0; i < length - 1; i++)
-		{
-			bool op = input[i] < input[i + 1];
-			if (sorttype == smallTobig && input[i] != input[i + 1])op = !op;
-			if (op) {
-				swapf(input+i, &input[i + 1]);
-				flag = true;
-			}
-		}
-	}
-	return (input);
-}
 
-void Sort::selectionSort(int input[], size_t length, sortType sorttype)
+//选择排序
+template<class T>
+void Sort<T>::selectionSort(T input[], size_t length, sortType sorttype)
 {
 	if (length == 1)return;
 	for (size_t i = 0; i < length-1; i++)
@@ -144,7 +101,8 @@ void Sort::selectionSort(int input[], size_t length, sortType sorttype)
 		if(max!=i)swap(input[i], input[max]);
 	}
 }
-void Sort::selectionSort2(int input[], size_t length, sortType sorttype)
+template<class T>
+void Sort<T>::selectionSort2(T input[], size_t length, sortType sorttype)
 {
 	if (length < 2)return;
 	int max = 0;
@@ -156,8 +114,9 @@ void Sort::selectionSort2(int input[], size_t length, sortType sorttype)
 	selectionSort2(input + 1, --length, sorttype);
 }
 
+template<class T>
 //使用交换法
-void Sort::insertSort(int input[], size_t length, sortType sorttype)
+void Sort<T>::insertSort(T input[], size_t length, sortType sorttype)
 {
 	if (length == 1)return;
 	for (size_t preinsert = 1; preinsert < length; preinsert++)//待插入元素索引的循环
@@ -171,11 +130,12 @@ void Sort::insertSort(int input[], size_t length, sortType sorttype)
 	}
 	if (sorttype == bigTosmall)
 	{
-		reverseArray(input,length);
+		c_reverseArray(input,length);
 	}
 }
+template<class T>
 //使用插入法
-void Sort::__insertSort(int input[], size_t length, sortType sorttype)
+void Sort<T>::__insertSort(T input[], size_t length, sortType sorttype)
 {
 	if (length == 1)return;
 	for (size_t preinsert = 1; preinsert < length; preinsert++)//待插入元素索引的循环
@@ -198,9 +158,10 @@ void Sort::__insertSort(int input[], size_t length, sortType sorttype)
 	}
 	if (sorttype == bigTosmall)
 	{
-		reverseArray(input, length);
+		c_reverseArray(input, length);
 	}
 }
+//堆排序
 void max_heapify(int arr[], int start, int end)
 {
 	//建立父节点指标和子节点指标
@@ -221,7 +182,8 @@ void max_heapify(int arr[], int start, int end)
 		}
 	}
 }
-void Sort::heap_sort(int input[], int len)
+template<class T>
+void Sort<T>::heap_sort(int input[], int len)
 {
 	int i;
 	//初始化，i从最後一个父节点开始调整
@@ -234,8 +196,9 @@ void Sort::heap_sort(int input[], int len)
 		max_heapify(input, 0, i - 1);
 	}
 }
+template<class T>
 
-void Sort::shellSort(int input[], size_t length, sortType sorttype)
+void Sort<T>::shellSort(int input[], size_t length, sortType sorttype)
 {
 	 for(int gap=length/2;gap>0;gap/=2){//这里增量取an+1=an/2（shell本人的建议）并非是最好的选择
             //从第gap个元素，逐个对其所在组进行直接插入排序操作
@@ -252,7 +215,8 @@ void Sort::shellSort(int input[], size_t length, sortType sorttype)
 
 ////1）采用更合理的基准数（中心轴），减少递归的深度。从数列中选取多个数，取中间数。
 //2）结合插入排序，区间在10个元素之内采用插入排序，效率更高。
-void Sort::fastSort(int input[],int length)
+template<class T>
+void Sort<T>::fastSort(int input[],int length)
 {
 	if (length < 2)return;
 	int pivot = input[length - 1];//令pivot为数组最右侧的元素
@@ -276,6 +240,37 @@ END:
 	fastSort(input + L + 1, length - L - 1);
 }
 
+template<class T>
+void Sort<T>::fastSortOneFollow(int input[], size_t length, int other[])
+{
+
+	{
+		if (length < 2)return;
+		int pivot = input[length - 1];//令pivot为数组最右侧的元素
+		int L = 0, R = length - 2;//定义L，R标记
+	moveTag:
+		while (input[L] < pivot)L++;//移动L标签（寻找大于pivot的元素）
+		if (L == length - 1)goto END;//如果L到达了pivot（L碰到R不会停止）
+		while (input[R] >= pivot)//左移R（寻找小于pivot的元素）
+		{
+			if (L == R)
+			{
+				swap(*(input + R), *(input + length - 1));//如果LR已经碰面，就认为排序完成
+				swap(*(other + R), *(other + length - 1));
+				goto END;
+			}
+			R--;
+		}
+		swap(*(input + L), *(input + R));//将小的扔到右边，大的扔到左边
+		swap(*(other + L), *(other + R));
+
+		goto moveTag;//如果LR没有碰面，就继续
+	END:
+		fastSortOneFollow(input, L, other);
+		fastSortOneFollow(input + L + 1, length - L - 1, other + L + 1);
+	}
+}
+
 void Merge(int sourceArr[], int tempArr[], int startIndex, int midIndex, int endIndex)
 {
 	int i = startIndex, j = midIndex + 1, k = startIndex;
@@ -294,7 +289,9 @@ void Merge(int sourceArr[], int tempArr[], int startIndex, int midIndex, int end
 		sourceArr[i] = tempArr[i];
 }
 //内部使用递归
-void Sort::MergeSort(int sourceArr[], int tempArr[], int startIndex, int endIndex, bool Recursion)
+template<class T>
+
+void Sort<T>::MergeSort(int sourceArr[], int tempArr[], int startIndex, int endIndex, bool Recursion)
 {
 	if (startIndex >= endIndex) return;
 		int midIndex = startIndex + (endIndex - startIndex) / 2;//避免溢出int
@@ -311,8 +308,8 @@ void merge_sort(vector<T> a) {
 		for (int start = 0; start < n - seg; start += seg + seg)
 			merge(a, start, start + seg - 1, std::min(start + seg + seg - 1, n - 1));
 }
-
-void Sort::CountSort(int data[], int n)
+template<class T>
+void Sort<T>::CountSort(int data[], int n)
 {
 	int i, j, count, * data_p, temp;
 	data_p = (int*)malloc(sizeof(int) * n);

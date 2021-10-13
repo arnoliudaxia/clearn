@@ -16,9 +16,12 @@ int main(int argNum,char args[]) {
 	using namespace std;
 
 	//sort alogrithm test template
-	vector<int> a= { 3,5,8,1,2,9,4,7,6 };
+	//vector<int> a= { 3,5,8,1,2,9,4,7,6 };
 
-	Sort mysort;
+	Sort<int> mysort;
+	int a = 1, b = 2;
+	mysort.swapTwo(a, b);
+	cout << a << b;
 	//int b[9];
 
 	/*sort(a.begin(), a.end());
