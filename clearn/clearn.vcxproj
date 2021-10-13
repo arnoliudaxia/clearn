@@ -141,12 +141,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="binaryTreePrefab.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="myalgorithm.cpp" />
     <ClCompile Include="recrusionDebug.cpp" />
     <ClCompile Include="yfSort.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="binaryTreePrefab.h" />
     <ClInclude Include="sortFunctions.h" />
     <ClInclude Include="yflinktable.h" />
     <ClInclude Include="yfsort.h" />

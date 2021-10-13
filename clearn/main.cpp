@@ -9,6 +9,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include "binaryTreePrefab.h"
 //#include "myalgorithm.cpp"
 
 int main(int argNum,char args[]) {
@@ -27,7 +28,7 @@ int main(int argNum,char args[]) {
 	}*/
 	
 	//linktable alogrithm test template
-	using namespace cpluslinktable;
+	/*using namespace cpluslinktable;
 	Linktable<Node<int>,int> linktable(10);
 	linktable.addNode(20);
 	Linktable<Node<int>, int> linktable2(40);
@@ -36,12 +37,16 @@ int main(int argNum,char args[]) {
 	linktable.merge(&linktable2);
 	linktable.logNodes();
 
-	linktable.reverse();
-	linktable.logNodes();
+	orderlinktable.addNode(2);
+	orderlinktable.logNodes();
 
-	//orderlinktable.addNode(2);
-	//orderlinktable.logNodes();
-
+	//Tree Test Template
+	using namespace BinaryTree;
+	binaryTreePrefab<> tree;
+	tree.root = TreeNode<>();
+	tree.addNode(&tree.root, new TreeNode<int>(10));
+	cout << tree.count(&tree.root)<<endl;
+	
 
 
 }
