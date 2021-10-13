@@ -51,7 +51,7 @@ public:
 	/// </summary>
 	/// <param name="input">为了编写代码的方便，只允许从小到大排列</param>
 	/// <param name="length"></param>
-	void fastSort(int input[], size_t length);
+	void fastSort(int input[], int length);
 
 
 	/// <summary>

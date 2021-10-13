@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include <corecrt_malloc.h>
 #include <vcruntime_string.h>
+#include <iostream>
 
 void Sort::swapf(float* a, float* b)
 {
@@ -88,6 +89,8 @@ float* Sort::bubbleSort(float input[], size_t length, sortType sorttype)
 }
 int* Sort::bubbleSortLazy(int input[], size_t length, sortType sorttype)
 {
+	int count = 0;
+
 	if (length == 1)return input;
 	bool flag = true;
 	while (flag)
@@ -101,8 +104,11 @@ int* Sort::bubbleSortLazy(int input[], size_t length, sortType sorttype)
 				swap(input[i], input[i + 1]);
 				flag = true;
 			}
+			count++;
+
 		}
 	}
+	std::cout << count;
 	return (input);
 }
 float* Sort::bubbleSortLazy(float input[], size_t length, sortType sorttype)
@@ -246,7 +252,7 @@ void Sort::shellSort(int input[], size_t length, sortType sorttype)
 
 ////1）采用更合理的基准数（中心轴），减少递归的深度。从数列中选取多个数，取中间数。
 //2）结合插入排序，区间在10个元素之内采用插入排序，效率更高。
-void Sort::fastSort(int input[], size_t length)
+void Sort::fastSort(int input[],int length)
 {
 	if (length < 2)return;
 	int pivot = input[length - 1];//令pivot为数组最右侧的元素

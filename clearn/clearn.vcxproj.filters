@@ -21,6 +21,12 @@
     <ClCompile Include="yfSort.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="recrusionDebug.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="myalgorithm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sortFunctions.h">

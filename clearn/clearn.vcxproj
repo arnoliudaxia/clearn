@@ -142,6 +142,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="myalgorithm.cpp" />
+    <ClCompile Include="recrusionDebug.cpp" />
     <ClCompile Include="yfSort.cpp" />
   </ItemGroup>
   <ItemGroup>

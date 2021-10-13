@@ -27,7 +27,7 @@ namespace cpluslinktable
 	/// this a abstart manager of Nodes, the first node address is stored at HEAD var, the class also exposes some useful API
 	/// </summary>
 	/// <typeparam name="NodeType">Node or BiNode</typeparam>
-	template <class NodeType=Node<>,class DataType=int>
+	template <class NodeType=Node<int>,class DataType=int>
 	class Linktable
 	{
 	public:
@@ -36,7 +36,11 @@ namespace cpluslinktable
 		/// </summary>
 		/// <param name="data">node valueֵ</param>
 		Linktable(DataType data) :HEAD(new Node<DataType>(data)) {}
-		
+		~Linktable()
+		{
+			if (HEAD)delete HEAD;
+		}
+
 		int size()
 		{
 			int count=0;
@@ -80,6 +84,8 @@ namespace cpluslinktable
 		/// <param name="data"></param>
 		void addNode(DataType data) { addNode({ data }); }
 
+
+
 		/// <summary>
 		/// try to search a node with the value given , if not found ,return -1,if found, return index
 		/// </summary>
@@ -99,7 +105,29 @@ namespace cpluslinktable
 				return isFound ? index : -1;
 		}
 
-	protected:
+		void merge(Linktable* other)
+		{
+			//先看一看最后再哪里
+			Node<DataType>* last = this->HEAD;
+			while (last->next) {
+				last = last->next;
+			}
+			last->next = other->HEAD;
+		}
+
+		NodeType* reverser(NodeType* head)
+		{
+			if (head->next == nullptr)return head;
+			NodeType* last = reverser(head->next);
+			head->next->next = head;
+			head->next = nullptr;
+			return last;
+		}
+		void reverse()
+		{
+			HEAD = reverser(HEAD);
+		}
+
 		NodeType* HEAD;
 	};
 
