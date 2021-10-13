@@ -28,24 +28,24 @@ int main(int argNum,char args[]) {
 	}*/
 	
 	//linktable alogrithm test template
-	/*using namespace cpluslinktable;
-	Linktable<Node<int>,int> linktable(10);
-	linktable.addNode(20);
-	Linktable<Node<int>, int> linktable2(40);
-	linktable2.addNode(20);
+	using namespace cpluslinktable;
+	//Linktable<Node<int>,int> linktable(10);
+	//linktable.addNode(20);
+	//Linktable<Node<int>, int> linktable2(40);
+	//linktable2.addNode(20);
 
-	linktable.merge(&linktable2);
-	linktable.logNodes();
+	//linktable.merge(&linktable2);
+	//linktable.logNodes();
 
-	orderlinktable.addNode(2);
-	orderlinktable.logNodes();
+	//orderlinktable.addNode(2);
+	//orderlinktable.logNodes();
 
-	//Tree Test Template
-	using namespace BinaryTree;
-	binaryTreePrefab<> tree;
-	tree.root = TreeNode<>();
-	tree.addNode(&tree.root, new TreeNode<int>(10));
-	cout << tree.count(&tree.root)<<endl;
+	////Tree Test Template
+	//using namespace BinaryTree;
+	//binaryTreePrefab<> tree;
+	//tree.root = TreeNode<>();
+	//tree.addNode(&tree.root, new TreeNode<int>(10));
+	//cout << tree.count(&tree.root)<<endl;
 	
 
 
